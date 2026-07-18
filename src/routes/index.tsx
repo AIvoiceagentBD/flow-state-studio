@@ -310,6 +310,7 @@ const stats = [
   { value: 20, suffix: "+", label: "Team members coordinated" },
   { value: 100, suffix: "%", label: "QA score maintained" },
   { value: 5, suffix: "×", label: "Employee of the Month" },
+  { value: 60, suffix: "K+", label: "Community grown from scratch" },
 ];
 
 function ImpactSection() {
