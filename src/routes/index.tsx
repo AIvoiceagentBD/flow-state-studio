@@ -323,7 +323,7 @@ function ImpactSection() {
         variants={fadeUp}
         className="max-w-4xl text-[clamp(2rem,5vw,4rem)] font-bold leading-[1.05] tracking-[-0.03em] text-gradient"
       >
-        Four years. Measurable outcomes.
+        Six years. Measurable outcomes.
       </motion.h2>
 
       <div className="mt-20 grid gap-px overflow-hidden rounded-3xl border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-3">
