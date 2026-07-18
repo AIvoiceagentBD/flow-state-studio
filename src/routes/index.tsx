@@ -310,6 +310,7 @@ const stats = [
   { value: 20, suffix: "+", label: "Team members coordinated" },
   { value: 100, suffix: "%", label: "QA score maintained" },
   { value: 5, suffix: "×", label: "Employee of the Month" },
+  { value: 60, suffix: "K+", label: "Community grown from scratch" },
 ];
 
 function ImpactSection() {
@@ -322,10 +323,10 @@ function ImpactSection() {
         variants={fadeUp}
         className="max-w-4xl text-[clamp(2rem,5vw,4rem)] font-bold leading-[1.05] tracking-[-0.03em] text-gradient"
       >
-        Four years. Measurable outcomes.
+        Six years. Measurable outcomes.
       </motion.h2>
 
-      <div className="mt-20 grid gap-px overflow-hidden rounded-3xl border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-5">
+      <div className="mt-20 grid gap-px overflow-hidden rounded-3xl border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-3">
         {stats.map((s, i) => (
           <motion.div
             key={s.label}
@@ -355,11 +356,14 @@ const timeline = [
     company: "Cottage Home Care",
     role: "Intake Coordinator",
     period: "Jun 2026 — Present",
-    location: "Maryland, USA",
+    location: "Maryland Medicaid (Remote)",
     achievements: [
-      "Owns end-to-end intake for Maryland Medicaid home care referrals",
-      "Coordinates with A&D offices, case managers, and support planners",
-      "Reduced onboarding delays through proactive follow-up workflows",
+      "Owns the complete intake process for new home care referrals within the Maryland Medicaid program.",
+      "Guides members through Medicaid documentation requirements and collects onboarding documents.",
+      "Coordinates assessments with Maryland Aging & Disability (A&D) offices.",
+      "Collaborates with Case Managers, Support Planners, and internal care teams to ensure timely service initiation.",
+      "Monitors referral progress and proactively follows up with clients and external stakeholders to prevent delays.",
+      "Provides professional phone and email support throughout the onboarding process.",
     ],
   },
   {
@@ -368,41 +372,66 @@ const timeline = [
     period: "Dec 2025 — May 2026",
     location: "Dhaka",
     achievements: [
-      "Designed and shipped an internal break management system for 20+ agents",
-      "Monitored live RingCentral queues; recovered missed-call leads",
-      "Coordinated SmartMoving, CallRail, and sales operations end-to-end",
+      "Coordinated daily operations for remote sales and support agents in a fast-paced moving services environment.",
+      "Monitored live call activity through RingCentral to ensure responsiveness, attendance, and service coverage.",
+      "Designed and implemented an internal web-based break management system for 20+ agents.",
+      "Assigned and distributed incoming leads based on priority, move dates, and operational demand.",
+      "Managed customer communications across SmartMoving, CallRail, RingCentral, and sales email channels.",
+      "Handled e-transfer verification, file management, and booking support end-to-end.",
+      "Monitored missed-call alerts and lead recovery workflows to minimize lost sales opportunities.",
     ],
   },
   {
     company: "Riseup Labs",
     role: "Digital Support Specialist",
     period: "Dec 2024 — Aug 2025",
-    location: "Dhaka",
+    location: "Dhaka, Bangladesh",
     achievements: [
-      "Handled 130+ emails/day for TTI USA brands — Ryobi, Ridgid, Hart",
-      "Maintained 100% QA score; ranked as a top performer",
-      "Built a serial-number verification tool for Ryobi recalls",
+      "Handled 130+ emails/day for TTI USA brands — Ryobi, Ridgid, and Hart.",
+      "Maintained a consistent 100% quality assurance score; ranked as a top performer.",
+      "Managed Ryobi Rapid Repair and Ridgid Direct Service programs end-to-end.",
+      "Designed a custom serial-number verification tool for Ryobi 40V Push Mower and Hedge Trimmer recalls.",
+      "Collaborated with cross-functional teams across USA, Canada, and South Africa — including FedEx logistics.",
+      "Operated Genesys and SAP C4C for ticket management and team collaboration via Microsoft Teams.",
     ],
   },
   {
     company: "Freelance",
-    role: "Document Digitization Specialist",
+    role: "Document Digitization Specialist (Remote)",
     period: "May 2024 — Dec 2024",
-    location: "Remote",
+    location: "Dhaka, Bangladesh",
     achievements: [
-      "Transcribed 1921 Canadian census records with full data integrity",
-      "Cross-verified entries to eliminate errors at scale",
+      "Transcribed and digitized handwritten 1921 Canadian census records with full data integrity.",
+      "Interpreted complex cursive handwriting to maintain high-quality data entry in internal databases.",
+      "Conducted verification and cross-checks to eliminate errors and maintain data consistency.",
+      "Collaborated with remote team members to resolve discrepancies and improve workflow efficiency.",
     ],
   },
   {
-    company: "Genex Infosys",
-    role: "Junior Executive, Digital Service Management",
+    company: "Genex Infosys Limited",
+    role: "Junior Executive — Digital Service Management",
     period: "Apr 2022 — Oct 2023",
-    location: "Dhaka",
+    location: "Dhaka, Bangladesh",
     achievements: [
-      "Managed 200+ tickets/day across email, chat, and social for Apex Footwear",
-      "Authored SOPs adopted by internal and client QA",
-      "Named Employee of the Month 5 times",
+      "Managed 200+ tickets/day across email, chat, and social media for Apex Footwear Ltd.",
+      "Led drafting of standardized responses approved by internal and client QA.",
+      "Developed Standard Operating Procedures (SOPs) to improve service quality and streamline workflows.",
+      "Collaborated with logistics and campaign teams to resolve escalated issues efficiently.",
+      "Recognized 5× as Employee of the Month for outstanding performance.",
+    ],
+  },
+  {
+    company: "Symbol Fashion House",
+    role: "Business Partner",
+    period: "Jul 2019 — Jan 2021",
+    location: "Dhaka, Bangladesh",
+    achievements: [
+      "Grew and managed a Facebook page with 60,000+ followers through consistent product content.",
+      "Ran targeted Facebook ad campaigns, tracking performance and optimizing for engagement and sales.",
+      "Sourced products from local markets, negotiated with suppliers, and managed inventory and pricing.",
+      "Handled order fulfillment, customer inquiries, and after-sales support end-to-end.",
+      "Analyzed social insights and sales data to inform marketing and product strategy.",
+      "Ran creative campaigns and promotions that grew brand visibility and revenue.",
     ],
   },
 ];
