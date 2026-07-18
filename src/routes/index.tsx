@@ -664,7 +664,7 @@ function Contact() {
         {[
           { icon: Mail, label: "Email", value: "rakibul.islam057@outlook.com", href: "mailto:rakibul.islam057@outlook.com" },
           { icon: Phone, label: "Phone", value: "+880 1839 939535", href: "tel:+8801839939535" },
-          { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/mohammed-rakib", href: "#" },
+          { icon: LinkedinIcon, label: "LinkedIn", value: "linkedin.com/in/mohammed-rakib", href: "#" },
           { icon: Download, label: "Resume", value: "Download PDF", href: "/Mohammed_Rakib_Resume.pdf" },
         ].map((c, i) => (
           <motion.a
