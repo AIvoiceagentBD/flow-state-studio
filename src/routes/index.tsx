@@ -6,7 +6,7 @@ import {
   ArrowUpRight,
   Mail,
   Phone,
-  Linkedin,
+  Linkedin as LinkedinIcon,
   Download,
   Workflow,
   Headset,
