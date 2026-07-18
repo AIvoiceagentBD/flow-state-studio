@@ -326,7 +326,7 @@ function ImpactSection() {
         Four years. Measurable outcomes.
       </motion.h2>
 
-      <div className="mt-20 grid gap-px overflow-hidden rounded-3xl border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-5">
+      <div className="mt-20 grid gap-px overflow-hidden rounded-3xl border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-3">
         {stats.map((s, i) => (
           <motion.div
             key={s.label}
