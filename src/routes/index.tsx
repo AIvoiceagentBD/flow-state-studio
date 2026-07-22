@@ -400,10 +400,10 @@ const timeline = [
     ],
   },
   {
-    company: "Ace Corporation",
+    company: "Lets Get Moving Canada",
     role: "Lead Administrator & Team Support Coordinator",
-    period: "Dec 2025 — May 2026",
-    location: "Dhaka",
+    period: "Dec 2025 — Jun 2026",
+    location: "Dhaka (Remote)",
     achievements: [
       "Coordinated daily operations for remote sales and support agents in a fast-paced moving services environment.",
       "Monitored live call activity through RingCentral to ensure responsiveness, attendance, and service coverage.",
@@ -415,7 +415,7 @@ const timeline = [
     ],
   },
   {
-    company: "Riseup Labs",
+    company: "Techtronic Industries (TTI) US/CA",
     role: "Digital Support Specialist",
     period: "Dec 2024 — Aug 2025",
     location: "Dhaka, Bangladesh",
@@ -429,7 +429,19 @@ const timeline = [
     ],
   },
   {
-    company: "Freelance",
+    company: "Mayer Doya Motors",
+    role: "Digital Accounting System Implementation (Freelance)",
+    period: "Sep 2025 — Nov 2025",
+    location: "Remote",
+    achievements: [
+      "Implemented Zoho Books Premium, configuring the system to match the company's accounting and invoicing needs.",
+      "Digitized six months of past transactions and established a process for daily financial data entry.",
+      "Designed a structured workflow for recording sales, expenses, payments, and vendor transactions.",
+      "Trained an internal employee to run invoicing, credit application, and customer/vendor management independently.",
+    ],
+  },
+  {
+    company: "Freelance — Document Digitization",
     role: "Document Digitization Specialist (Remote)",
     period: "May 2024 — Dec 2024",
     location: "Dhaka, Bangladesh",
@@ -619,18 +631,51 @@ function Systems() {
 }
 
 // ---------- Toolbox ----------
-const tools = [
-  "Genesys Cloud",
-  "SAP C4C",
-  "RingCentral",
-  "SmartMoving",
-  "CallRail",
-  "Zoho Books",
-  "Microsoft Dynamics",
-  "HappyFox",
-  "Google Workspace",
-  "Microsoft 365",
+const toolGroups = [
+  {
+    label: "Operations & Coordination",
+    items: [
+      "Remote Team Coordination",
+      "Lead Assignment & Distribution",
+      "Workflow Optimization",
+      "Call Monitoring & Queue Oversight",
+      "Process Improvement",
+      "Escalation Handling",
+      "Service Quality Control",
+      "SOP Design",
+    ],
+  },
+  {
+    label: "Customer Support & Communication",
+    items: [
+      "Email & Ticket-Based Support",
+      "SLA & KPI Adherence",
+      "Complaint & Escalation Management",
+      "Cross-Department Coordination",
+      "International Client Support",
+      "Customer Retention & Recovery",
+      "Professional Business Communication",
+    ],
+  },
+  {
+    label: "CRM & Support Platforms",
+    items: [
+      "RingCentral",
+      "SmartMoving CRM",
+      "CallRail",
+      "SAP C4C",
+      "Genesys Cloud",
+      "Microsoft Dynamics",
+      "HappyFox",
+      "Amazon Access Point",
+      "Zoho Books",
+      "Microsoft 365",
+      "Google Workspace",
+    ],
+  },
 ];
+
+const tools = toolGroups.flatMap((g) => g.items);
 
 function ToolBadge({ label, i }: { label: string; i: number }) {
   const x = useMotionValue(0);
