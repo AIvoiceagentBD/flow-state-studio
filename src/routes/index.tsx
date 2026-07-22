@@ -708,7 +708,7 @@ function ToolBadge({ label, i }: { label: string; i: number }) {
 
 function Toolbox() {
   return (
-    <Section eyebrow="Toolbox">
+    <Section id="toolbox" eyebrow="Toolbox & Skills">
       <motion.h2
         initial="hidden"
         whileInView="show"
@@ -719,9 +719,19 @@ function Toolbox() {
         The stack I run on.
       </motion.h2>
 
-      <div className="mt-16 flex flex-wrap gap-3">
-        {tools.map((t, i) => (
-          <ToolBadge key={t} label={t} i={i} />
+      <div className="mt-16 space-y-12">
+        {toolGroups.map((group, gi) => (
+          <div key={group.label}>
+            <div className="mb-6 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+              <span className="h-px w-6 bg-primary/60" />
+              {group.label}
+            </div>
+            <div className="flex flex-wrap gap-3">
+              {group.items.map((t, i) => (
+                <ToolBadge key={t} label={t} i={gi * 4 + i} />
+              ))}
+            </div>
+          </div>
         ))}
       </div>
 
@@ -733,8 +743,81 @@ function Toolbox() {
         className="mt-16 flex flex-wrap items-center gap-2 text-sm text-muted-foreground"
       >
         <Award className="h-4 w-4 text-primary" />
-        Recognized 5× as Employee of the Month · 100% QA at Riseup Labs
+        Recognized 5× as Employee of the Month · 100% QA at TTI
       </motion.div>
+    </Section>
+  );
+}
+
+// ---------- Companies (marquee) ----------
+const companies = [
+  "Cottage Home Care",
+  "Lets Get Moving Canada",
+  "Techtronic Industries (TTI)",
+  "Ryobi",
+  "Ridgid",
+  "Hart",
+  "Mayer Doya Motors",
+  "Apex Footwear Ltd",
+  "Genex Infosys Limited",
+  "Symbol Fashion House",
+  "FedEx",
+];
+
+function CompanyRow({ reverse = false }: { reverse?: boolean }) {
+  const list = [...companies, ...companies];
+  return (
+    <div className="group relative overflow-hidden">
+      <div
+        className={`flex w-max gap-4 py-2 ${reverse ? "animate-marquee-reverse" : "animate-marquee"} group-hover:[animation-play-state:paused]`}
+      >
+        {list.map((c, i) => (
+          <div
+            key={`${c}-${i}`}
+            className="flex shrink-0 items-center gap-3 rounded-2xl border border-hairline bg-surface/60 px-6 py-4 backdrop-blur-sm transition-colors hover:border-primary/40"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_10px_#6EE7F9]" />
+            <span className="whitespace-nowrap text-sm font-medium tracking-tight text-foreground/90">
+              {c}
+            </span>
+          </div>
+        ))}
+      </div>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent" />
+    </div>
+  );
+}
+
+function Companies() {
+  return (
+    <Section id="companies" eyebrow="Where I've worked">
+      <motion.h2
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fadeUp}
+        className="max-w-4xl text-[clamp(2rem,5vw,4rem)] font-bold leading-[1.05] tracking-[-0.03em] text-gradient"
+      >
+        Teams and brands I've supported.
+      </motion.h2>
+
+      <motion.p
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fadeUp}
+        custom={1}
+        className="mt-6 max-w-2xl text-base text-muted-foreground"
+      >
+        Six years across home care, cross-border moving, power-tool support, e-commerce, and
+        fashion — direct roles and clients served through them.
+      </motion.p>
+
+      <div className="mt-14 space-y-4">
+        <CompanyRow />
+        <CompanyRow reverse />
+      </div>
     </Section>
   );
 }
