@@ -15,6 +15,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { Spotlight } from "@/components/Spotlight";
+import rakibPortrait from "@/assets/rakib-portrait.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Portfolio,
@@ -129,71 +130,102 @@ function Hero() {
 
       <motion.div
         style={{ y, opacity }}
-        className="relative mx-auto flex min-h-screen max-w-6xl flex-col justify-center px-6 pt-32"
+        className="relative mx-auto grid min-h-screen max-w-6xl grid-cols-1 items-center gap-16 px-6 pt-32 lg:grid-cols-[1.35fr_1fr] lg:gap-20"
       >
-        <motion.div
-          initial="hidden"
-          animate="show"
-          variants={fadeUp}
-          className="mb-8 inline-flex w-fit items-center gap-2 rounded-full border border-hairline glass px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground"
-        >
-          <span className="relative flex h-1.5 w-1.5">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
-            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
-          </span>
-          Available for new operations roles
-        </motion.div>
-
-        <motion.h1
-          initial="hidden"
-          animate="show"
-          custom={1}
-          variants={fadeUp}
-          className="text-gradient text-[clamp(3rem,10vw,8.5rem)] font-black leading-[0.9] tracking-[-0.04em]"
-        >
-          Operations
-          <br />
-          <span className="text-accent-gradient">without chaos.</span>
-        </motion.h1>
-
-        <motion.p
-          initial="hidden"
-          animate="show"
-          custom={2}
-          variants={fadeUp}
-          className="mt-10 max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl"
-        >
-          I design workflows, improve operations, and build systems that help teams move faster —
-          from 200-ticket support queues to full CRM rollouts.
-        </motion.p>
-
-        <motion.div
-          initial="hidden"
-          animate="show"
-          custom={3}
-          variants={fadeUp}
-          className="mt-12 flex flex-wrap items-center gap-4"
-        >
-          <a
-            href="#work"
-            className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
+        <div className="flex flex-col">
+          <motion.div
+            initial="hidden"
+            animate="show"
+            variants={fadeUp}
+            className="mb-8 inline-flex w-fit items-center gap-2 rounded-full border border-hairline glass px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground"
           >
-            See what I do
-            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </a>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 rounded-full border border-hairline glass px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-white/5"
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-primary" />
+            </span>
+            Available for new operations roles
+          </motion.div>
+
+          <motion.h1
+            initial="hidden"
+            animate="show"
+            custom={1}
+            variants={fadeUp}
+            className="text-gradient text-[clamp(2.75rem,9vw,7.5rem)] font-black leading-[0.9] tracking-[-0.04em]"
           >
-            Let's talk
-          </a>
+            Operations
+            <br />
+            <span className="text-accent-gradient">without chaos.</span>
+          </motion.h1>
+
+          <motion.p
+            initial="hidden"
+            animate="show"
+            custom={2}
+            variants={fadeUp}
+            className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg"
+          >
+            I'm Mohammed Rakib — I design workflows, improve operations, and build systems
+            that help teams move faster, from 200-ticket support queues to full CRM rollouts.
+          </motion.p>
+
+          <motion.div
+            initial="hidden"
+            animate="show"
+            custom={3}
+            variants={fadeUp}
+            className="mt-10 flex flex-wrap items-center gap-4"
+          >
+            <a
+              href="#work"
+              className="group inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-transform hover:scale-[1.03]"
+            >
+              See what I do
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 rounded-full border border-hairline glass px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-white/5"
+            >
+              Let's talk
+            </a>
+          </motion.div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 40, scale: 0.96 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          className="relative mx-auto w-full max-w-sm lg:max-w-none"
+        >
+          <div className="pointer-events-none absolute -inset-6 rounded-[2rem] bg-[radial-gradient(ellipse_at_center,rgba(110,231,249,0.28),transparent_70%)] blur-2xl" />
+          <div className="relative overflow-hidden rounded-[1.75rem] border border-hairline glass shadow-2xl">
+            <img
+              src={rakibPortrait.url}
+              alt="Mohammed Rakib, operations lead"
+              className="aspect-[4/5] w-full object-cover"
+              loading="eager"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/70 via-background/0 to-background/10" />
+            <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-2xl border border-hairline bg-background/60 px-4 py-3 backdrop-blur-md">
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary">
+                  Mohammed Rakib
+                </p>
+                <p className="mt-0.5 text-sm font-medium text-foreground">
+                  Operations · Systems · CRM
+                </p>
+              </div>
+              <span className="h-2 w-2 animate-pulse rounded-full bg-primary shadow-[0_0_12px_rgba(110,231,249,0.9)]" />
+            </div>
+          </div>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 1 }}
-          className="absolute inset-x-0 bottom-10 flex justify-center"
+          className="absolute inset-x-0 bottom-10 flex justify-center lg:col-span-2"
         >
           <div className="flex flex-col items-center gap-2 text-muted-foreground">
             <span className="font-mono text-[10px] uppercase tracking-[0.3em]">Scroll</span>
