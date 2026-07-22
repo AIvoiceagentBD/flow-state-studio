@@ -76,6 +76,7 @@ function Nav() {
     ["Impact", "#impact"],
     ["Journey", "#journey"],
     ["Systems", "#systems"],
+    ["Companies", "#companies"],
     ["Contact", "#contact"],
   ];
 
