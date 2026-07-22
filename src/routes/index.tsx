@@ -15,7 +15,8 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { Spotlight } from "@/components/Spotlight";
-import rakibPortrait from "@/assets/rakib-portrait.jpg.asset.json";
+
+const portraitUrl = "/rakib-portrait.jpg";
 
 export const Route = createFileRoute("/")({
   component: Portfolio,
@@ -75,6 +76,7 @@ function Nav() {
     ["Impact", "#impact"],
     ["Journey", "#journey"],
     ["Systems", "#systems"],
+    ["Companies", "#companies"],
     ["Contact", "#contact"],
   ];
 
@@ -201,7 +203,7 @@ function Hero() {
           <div className="pointer-events-none absolute -inset-6 rounded-[2rem] bg-[radial-gradient(ellipse_at_center,rgba(110,231,249,0.28),transparent_70%)] blur-2xl" />
           <div className="relative overflow-hidden rounded-[1.75rem] border border-hairline glass shadow-2xl">
             <img
-              src={rakibPortrait.url}
+              src={portraitUrl}
               alt="Mohammed Rakib, operations lead"
               className="aspect-[4/5] w-full object-cover"
               loading="eager"
@@ -399,10 +401,10 @@ const timeline = [
     ],
   },
   {
-    company: "Ace Corporation",
+    company: "Lets Get Moving Canada",
     role: "Lead Administrator & Team Support Coordinator",
-    period: "Dec 2025 — May 2026",
-    location: "Dhaka",
+    period: "Dec 2025 — Jun 2026",
+    location: "Dhaka (Remote)",
     achievements: [
       "Coordinated daily operations for remote sales and support agents in a fast-paced moving services environment.",
       "Monitored live call activity through RingCentral to ensure responsiveness, attendance, and service coverage.",
@@ -414,7 +416,7 @@ const timeline = [
     ],
   },
   {
-    company: "Riseup Labs",
+    company: "Techtronic Industries (TTI) US/CA",
     role: "Digital Support Specialist",
     period: "Dec 2024 — Aug 2025",
     location: "Dhaka, Bangladesh",
@@ -428,7 +430,19 @@ const timeline = [
     ],
   },
   {
-    company: "Freelance",
+    company: "Mayer Doya Motors",
+    role: "Digital Accounting System Implementation (Freelance)",
+    period: "Sep 2025 — Nov 2025",
+    location: "Remote",
+    achievements: [
+      "Implemented Zoho Books Premium, configuring the system to match the company's accounting and invoicing needs.",
+      "Digitized six months of past transactions and established a process for daily financial data entry.",
+      "Designed a structured workflow for recording sales, expenses, payments, and vendor transactions.",
+      "Trained an internal employee to run invoicing, credit application, and customer/vendor management independently.",
+    ],
+  },
+  {
+    company: "Freelance — Document Digitization",
     role: "Document Digitization Specialist (Remote)",
     period: "May 2024 — Dec 2024",
     location: "Dhaka, Bangladesh",
@@ -618,18 +632,51 @@ function Systems() {
 }
 
 // ---------- Toolbox ----------
-const tools = [
-  "Genesys Cloud",
-  "SAP C4C",
-  "RingCentral",
-  "SmartMoving",
-  "CallRail",
-  "Zoho Books",
-  "Microsoft Dynamics",
-  "HappyFox",
-  "Google Workspace",
-  "Microsoft 365",
+const toolGroups = [
+  {
+    label: "Operations & Coordination",
+    items: [
+      "Remote Team Coordination",
+      "Lead Assignment & Distribution",
+      "Workflow Optimization",
+      "Call Monitoring & Queue Oversight",
+      "Process Improvement",
+      "Escalation Handling",
+      "Service Quality Control",
+      "SOP Design",
+    ],
+  },
+  {
+    label: "Customer Support & Communication",
+    items: [
+      "Email & Ticket-Based Support",
+      "SLA & KPI Adherence",
+      "Complaint & Escalation Management",
+      "Cross-Department Coordination",
+      "International Client Support",
+      "Customer Retention & Recovery",
+      "Professional Business Communication",
+    ],
+  },
+  {
+    label: "CRM & Support Platforms",
+    items: [
+      "RingCentral",
+      "SmartMoving CRM",
+      "CallRail",
+      "SAP C4C",
+      "Genesys Cloud",
+      "Microsoft Dynamics",
+      "HappyFox",
+      "Amazon Access Point",
+      "Zoho Books",
+      "Microsoft 365",
+      "Google Workspace",
+    ],
+  },
 ];
+
+const tools = toolGroups.flatMap((g) => g.items);
 
 function ToolBadge({ label, i }: { label: string; i: number }) {
   const x = useMotionValue(0);
@@ -662,7 +709,7 @@ function ToolBadge({ label, i }: { label: string; i: number }) {
 
 function Toolbox() {
   return (
-    <Section eyebrow="Toolbox">
+    <Section id="toolbox" eyebrow="Toolbox & Skills">
       <motion.h2
         initial="hidden"
         whileInView="show"
@@ -673,9 +720,19 @@ function Toolbox() {
         The stack I run on.
       </motion.h2>
 
-      <div className="mt-16 flex flex-wrap gap-3">
-        {tools.map((t, i) => (
-          <ToolBadge key={t} label={t} i={i} />
+      <div className="mt-16 space-y-12">
+        {toolGroups.map((group, gi) => (
+          <div key={group.label}>
+            <div className="mb-6 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+              <span className="h-px w-6 bg-primary/60" />
+              {group.label}
+            </div>
+            <div className="flex flex-wrap gap-3">
+              {group.items.map((t, i) => (
+                <ToolBadge key={t} label={t} i={gi * 4 + i} />
+              ))}
+            </div>
+          </div>
         ))}
       </div>
 
@@ -687,8 +744,81 @@ function Toolbox() {
         className="mt-16 flex flex-wrap items-center gap-2 text-sm text-muted-foreground"
       >
         <Award className="h-4 w-4 text-primary" />
-        Recognized 5× as Employee of the Month · 100% QA at Riseup Labs
+        Recognized 5× as Employee of the Month · 100% QA at TTI
       </motion.div>
+    </Section>
+  );
+}
+
+// ---------- Companies (marquee) ----------
+const companies = [
+  "Cottage Home Care",
+  "Lets Get Moving Canada",
+  "Techtronic Industries (TTI)",
+  "Ryobi",
+  "Ridgid",
+  "Hart",
+  "Mayer Doya Motors",
+  "Apex Footwear Ltd",
+  "Genex Infosys Limited",
+  "Symbol Fashion House",
+  "FedEx",
+];
+
+function CompanyRow({ reverse = false }: { reverse?: boolean }) {
+  const list = [...companies, ...companies];
+  return (
+    <div className="group relative overflow-hidden">
+      <div
+        className={`flex w-max gap-4 py-2 ${reverse ? "animate-marquee-reverse" : "animate-marquee"} group-hover:[animation-play-state:paused]`}
+      >
+        {list.map((c, i) => (
+          <div
+            key={`${c}-${i}`}
+            className="flex shrink-0 items-center gap-3 rounded-2xl border border-hairline bg-surface/60 px-6 py-4 backdrop-blur-sm transition-colors hover:border-primary/40"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_10px_#6EE7F9]" />
+            <span className="whitespace-nowrap text-sm font-medium tracking-tight text-foreground/90">
+              {c}
+            </span>
+          </div>
+        ))}
+      </div>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent" />
+    </div>
+  );
+}
+
+function Companies() {
+  return (
+    <Section id="companies" eyebrow="Where I've worked">
+      <motion.h2
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fadeUp}
+        className="max-w-4xl text-[clamp(2rem,5vw,4rem)] font-bold leading-[1.05] tracking-[-0.03em] text-gradient"
+      >
+        Teams and brands I've supported.
+      </motion.h2>
+
+      <motion.p
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        variants={fadeUp}
+        custom={1}
+        className="mt-6 max-w-2xl text-base text-muted-foreground"
+      >
+        Six years across home care, cross-border moving, power-tool support, e-commerce, and
+        fashion — direct roles and clients served through them.
+      </motion.p>
+
+      <div className="mt-14 space-y-4">
+        <CompanyRow />
+        <CompanyRow reverse />
+      </div>
     </Section>
   );
 }
@@ -775,6 +905,7 @@ function Portfolio() {
         <Journey />
         <Systems />
         <Toolbox />
+        <Companies />
         <Contact />
       </div>
     </main>
