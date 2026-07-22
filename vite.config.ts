@@ -12,4 +12,8 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Outside Lovable's build, honor NITRO_PRESET (e.g. "netlify" from netlify.toml)
+  // so `bun run build` produces a platform-ready bundle. Inside Lovable, Cloudflare
+  // is forced automatically, so this is a no-op there.
+  nitro: true,
 });
