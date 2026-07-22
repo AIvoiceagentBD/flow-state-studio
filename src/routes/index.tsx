@@ -15,7 +15,8 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import { Spotlight } from "@/components/Spotlight";
-import rakibPortrait from "@/assets/rakib-portrait.jpg.asset.json";
+
+const portraitUrl = "/rakib-portrait.jpg";
 
 export const Route = createFileRoute("/")({
   component: Portfolio,
@@ -201,7 +202,7 @@ function Hero() {
           <div className="pointer-events-none absolute -inset-6 rounded-[2rem] bg-[radial-gradient(ellipse_at_center,rgba(110,231,249,0.28),transparent_70%)] blur-2xl" />
           <div className="relative overflow-hidden rounded-[1.75rem] border border-hairline glass shadow-2xl">
             <img
-              src={rakibPortrait.url}
+              src={portraitUrl}
               alt="Mohammed Rakib, operations lead"
               className="aspect-[4/5] w-full object-cover"
               loading="eager"
